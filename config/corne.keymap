@@ -9,6 +9,28 @@
 #include <dt-bindings/zmk/keys.h>
 
 / {
+    combos {
+        compatible = "zmk,combos";
+
+        new_combo {
+            bindings = <&trans>;
+            key-positions = <39 37>;
+            layers = <0>;
+        };
+    };
+
+    macros {
+        new_macro: new_macro {
+            compatible = "zmk,behavior-macro";
+            label = "NEW_MACRO";
+            #binding-cells = <0>;
+            bindings =
+                <&none &kp LS(H) &kp E &kp L &kp L &kp O &kp COMMA &kp RET &kp RET &kp LS(I) &kp SPACE &kp H &kp O &kp P &kp E &kp SPACE &kp Y &kp O &kp U &kp SPACE &kp A &kp R &kp E &kp SPACE &kp H &kp A &kp V &kp I &kp N &kp G &kp SPACE &kp A &kp SPACE &kp L &kp O &kp V &kp E &kp L &kp Y &kp SPACE &kp D &kp A &kp Y &kp SPACE &kp S &kp O &kp SPACE &kp F &kp A &kp R &kp COMMA &kp SPACE &kp RET &kp RET &kp LS(B) &kp E &kp S &kp T &kp COMMA &kp SPACE &kp RET &kp LS(R) &kp A &kp I &kp D>,
+                <&macro_press>,
+                <&kp LS(TAB)>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -20,10 +42,10 @@
             //                    | GUI | LWR | LCMD |   | SPC | RSE  | ALT |
 
             bindings = <
-  &kp TAB  &kp Q  &kp W     &kp E  &kp R     &kp T        &kp Y  &kp U      &kp I    &kp O     &kp P  &kp BSPC
-&kp LCTRL  &kp A  &kp S     &kp D  &kp F     &kp G        &kp H  &kp J      &kp K    &kp L  &kp SEMI   &kp SQT
-&kp LSHFT  &kp Z  &kp X     &kp C  &kp V     &kp B        &kp N  &kp M  &kp COMMA  &kp DOT  &kp FSLH   &kp ESC
-                         &kp LGUI  &mo 1  &kp LCMD    &kp SPACE  &mo 2   &kp RALT
+  &kp TAB  &kp Q  &kp W     &kp E  &kp R      &kp T        &kp Y  &kp U      &kp I    &kp O     &kp P  &kp BSPC
+&kp LCTRL  &kp A  &kp S     &kp D  &kp F      &kp G        &kp H  &kp J      &kp K    &kp L  &kp SEMI   &kp SQT
+&kp LSHFT  &kp Z  &kp X     &kp C  &kp V      &kp B        &kp N  &kp M  &kp COMMA  &kp DOT  &kp FSLH   &kp ESC
+                         &kp LGUI  &mo 1  &kp ENTER    &kp SPACE  &mo 2   &kp RALT
             >;
         };
 
@@ -35,9 +57,9 @@
             //                    | GUI |     | LCMD |   | SPC |     | ALT |
 
             bindings = <
-   &kp TAB        &kp N1        &kp N2        &kp N3        &kp N4        &kp N5      &kp N6    &kp N7    &kp N8     &kp N9  &kp N0  &kp BSPC
-&bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &kp LEFT  &kp DOWN    &kp UP  &kp RIGHT  &trans    &trans
- &kp LSHFT        &trans        &trans        &trans        &trans        &trans      &trans    &trans    &trans     &trans  &trans    &trans
+   &kp TAB        &kp N1        &kp N2        &kp N3        &kp N4        &kp N5      &kp N6    &kp N7    &kp N8     &kp N9      &kp N0  &kp BSPC
+&bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &kp LEFT  &kp DOWN    &kp UP  &kp RIGHT  &new_macro    &trans
+ &kp LSHFT        &trans        &trans        &trans        &trans        &trans      &trans    &trans    &trans     &trans      &trans    &trans
                                             &kp LGUI        &trans     &kp SPACE     &kp RET    &trans  &kp RALT
             >;
         };
